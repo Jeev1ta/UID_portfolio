@@ -6,73 +6,209 @@
   <title>My Portfolio</title>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background-color: black;
       color: white;
       font-family: 'Times New Roman', Times, serif;
+    }
+
+    .section-wrap {
+      display: none;
+    }
+
+    #intro-wrap {
       height: 300vh;
     }
 
+    #map-wrap {
+      height: 300vh;
+    }
+
+    /* ── INTRO ── */
     #intro {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 0px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0px;
     }
 
     #intro img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        animation: fadeinout linear;
-        animation-timeline: scroll();
-        animation-range: 0px 2000px;
-        margin: 0;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      animation: fadeinout linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 1500px;
+      margin: 0;
     }
 
     #intro p {
-        font-size: 80px;
-        line-height: 1;
-        text-decoration: underline wheat 3px;
-        letter-spacing: 2px;
-        animation: fadeinout linear;
-        animation-timeline: scroll();
-        animation-range: 0px 2000px;
-        margin: 0;
-        line-height: 1.5;
+      font-size: 80px;
+      line-height: 1.5;
+      text-decoration: underline wheat 3px;
+      letter-spacing: 2px;
+      animation: fadeinout linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 1500px;
+      margin: 0;
+      padding: 0;
     }
 
     @keyframes fadeinout {
-        0%   { opacity: 0; }
-        40%  { opacity: 1; }
-        70%  { opacity: 0; }
-        100% { opacity: 0; }
+      0%   { opacity: 0; }
+      40%  { opacity: 1; }
+      70%  { opacity: 0; }
+      100% { opacity: 0; }
     }
 
+    /* ── MAP SECTION ── */
+    #map-section {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      animation: fadeinsection linear both;
+      animation-timeline: scroll();
+      animation-range: 2000px 2500px;
+    }
+
+    @keyframes fadeinsection {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    #map-section img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 70%;
+      object-fit: cover;
+    }
+
+    /* dark overlay so text is readable */
+    #map-section .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* text on top of map */
+    #map-section .map-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    #map-section .map-text h2 {
+      font-size: 60px;
+      letter-spacing: 5px;
+      color: white;
+    }
+
+    #map-section .map-text p {
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: #ddd;
+      margin-top: 10px;
+    }
+
+    /* ── CHECKBOX TRICK ── */
+    #reveal-toggle {
+      display: none;
+    }
+
+    .reveal-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 2px solid wheat;
+      color: wheat;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s;
+    }
+
+    .reveal-btn:hover {
+      background: rgba(245, 222, 179, 0.2);
+    }
+
+    .about-text {
+      display: none;
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: wheat;
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+    }
+
+    #reveal-toggle:checked ~ .map-text .reveal-btn {
+      display: none;
+    }
+
+    #reveal-toggle:checked ~ .map-text .about-text {
+      display: block;
+    }
+
+    /* ── SCROLL HINT ── */
     .scroll-hint {
-        position: fixed;
-        bottom: 30px;
-        width: 100%;
-        text-align: center;
-        color: #555;
-        font-size: 14px;
-        letter-spacing: 3px;
+      position: fixed;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      letter-spacing: 3px;
     }
   </style>
 </head>
 <body>
 
-  <div id="intro">
-    <img src="img.jpg" alt="My Photo" />
-    <p>Jeevita</p>
+  <!-- INTRO -->
+  <div id="intro-wrap">
+    <div id="intro">
+      <img src="me.jpg" alt="My Photo" />
+      <p>Jeevita</p>
+    </div>
+  </div>
+
+  <!-- MAP SECTION -->
+  <div id="map-wrap">
+    <div id="map-section">
+      <img src="map.png" alt="Map" />
+      <div class="overlay"></div>
+      <input type="checkbox" id="reveal-toggle" />
+      <div class="map-text">
+        <label for="reveal-toggle" class="reveal-btn">I solemnly swear that I am up to no good</label>
+        <p class="about-text">Your about me paragraph goes here. Write anything you'd like to share about yourself, your passions, your journey, and what makes you who you are.</p>
+      </div>
+    </div>
   </div>
 
   <p class="scroll-hint">SCROLL DOWN</p>
+
+
 
 </body>
 </html>

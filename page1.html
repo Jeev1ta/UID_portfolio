@@ -15,15 +15,11 @@
     body {
       background-color: black;
       color: white;
-      font-family: 'Times New Roman', Times, serif;
-    }
-
-    .section-wrap {
-      display: none;
+      font-family: cursive, 'Times New Roman', Times, serif;
     }
 
     #intro-wrap {
-      height: 300vh;
+      height: 299vh;
     }
 
     #map-wrap {
@@ -39,7 +35,6 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 0px;
     }
 
     #intro img {
@@ -49,7 +44,7 @@
       object-fit: cover;
       animation: fadeinout linear both;
       animation-timeline: scroll();
-      animation-range: 0px 1500px;
+      animation-range: 0px 1800px;
       margin: 0;
     }
 
@@ -60,7 +55,7 @@
       letter-spacing: 2px;
       animation: fadeinout linear both;
       animation-timeline: scroll();
-      animation-range: 0px 1500px;
+      animation-range: 0px 1800px;
       margin: 0;
       padding: 0;
     }
@@ -88,7 +83,7 @@
       to   { opacity: 1; }
     }
 
-    #map-section img {
+    #map-section > img {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -98,8 +93,7 @@
       object-fit: cover;
     }
 
-    /* dark overlay so text is readable */
-    #map-section .overlay {
+    .overlay {
       position: absolute;
       top: 0;
       left: 0;
@@ -108,26 +102,17 @@
       background: rgba(0, 0, 0, 0.4);
     }
 
-    /* text on top of map */
-    #map-section .map-text {
+    /* ── MAP TEXT (button + paragraph, both centered) ── */
+    .map-text {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-    #map-section .map-text h2 {
-      font-size: 60px;
-      letter-spacing: 5px;
-      color: white;
-    }
-
-    #map-section .map-text p {
-      font-size: 20px;
-      letter-spacing: 3px;
-      color: #ddd;
-      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     /* ── CHECKBOX TRICK ── */
@@ -136,16 +121,16 @@
     }
 
     .reveal-btn {
-      display: inline-block;
       padding: 12px 24px;
       border: 2px solid wheat;
       color: wheat;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: cursive, 'Comic Sans MS', sans-serif;
       font-size: 16px;
       letter-spacing: 2px;
       cursor: pointer;
       background: rgba(0, 0, 0, 0.5);
       transition: background 0.3s;
+      margin-top: 115px;
     }
 
     .reveal-btn:hover {
@@ -153,14 +138,18 @@
     }
 
     .about-text {
-      display: none;
-      max-width: 500px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      max-width: 760px;
       font-size: 18px;
       line-height: 1.8;
       color: wheat;
       text-align: center;
-      margin-top: 20px;
+      letter-spacing: 1px;
+      font-family: cursive, 'Comic Sans MS', sans-serif;
       font-style: italic;
+      margin-top: 0;
     }
 
     #reveal-toggle:checked ~ .map-text .reveal-btn {
@@ -168,7 +157,134 @@
     }
 
     #reveal-toggle:checked ~ .map-text .about-text {
-      display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* ── PROJECTS SECTION ── */
+    #projects-wrap {
+      background: black;
+      padding: 60px 0;
+    }
+
+    #projects-title {
+      text-align: center;
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      margin-bottom: 40px;
+      font-weight: normal;
+    }
+
+    #projects-scroll {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      gap: 30px;
+      padding: 20px 80px;
+      scrollbar-width: none;
+    }
+
+    #projects-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .proj-card {
+      min-width: 300px;
+      max-width: 300px;
+      background: rgba(245, 222, 179, 0.05);
+      border: 1px solid rgba(245, 222, 179, 0.3);
+      padding: 30px;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      transition: border-color 0.3s;
+    }
+
+    .proj-card:hover {
+      border-color: wheat;
+    }
+
+    .proj-card h3 {
+      font-size: 20px;
+      color: wheat;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .proj-card p {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .proj-card a {
+      color: wheat;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      border-bottom: 1px solid wheat;
+      padding-bottom: 2px;
+      transition: opacity 0.3s;
+    }
+
+    .proj-card a:hover {
+      opacity: 0.6;
+    }
+
+    /* ── SKILLS SECTION ── */
+    #skills-wrap {
+      background: black;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    #skills-title {
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
+
+    #skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill-tag {
+      padding: 10px 20px;
+      border: 1px solid rgba(245, 222, 179, 0.4);
+      color: wheat;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background: rgba(245, 222, 179, 0.1);
+      border-color: wheat;
+    }
+
+    /* ── SOFT SKILLS SECTION ── */
+    #soft-skills-wrap {
+      background: black;
+      padding: 60px 40px 100px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(245, 222, 179, 0.1);
+    }
+
+    #soft-skills-title {
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 40px;
     }
 
     /* ── SCROLL HINT ── */
@@ -201,14 +317,96 @@
       <input type="checkbox" id="reveal-toggle" />
       <div class="map-text">
         <label for="reveal-toggle" class="reveal-btn">I solemnly swear that I am up to no good</label>
-        <p class="about-text">Your about me paragraph goes here. Write anything you'd like to share about yourself, your passions, your journey, and what makes you who you are.</p>
+        <p class="about-text">Just a curious builder who probably belongs in Hogwarts just with code instead of spells ;P
+With strong Slytherin energy, I'm always up for a challenge.
+When I'm not waiting for my acceptance letter, I'm turning ideas into real projects.
+I enjoy solving problems, from circuits to software.</p>
       </div>
     </div>
   </div>
 
+  <!-- PROJECTS -->
+  <div id="projects-wrap">
+    <h2 id="projects-title">Projects</h2>
+    <div id="projects-scroll">
+
+      <div class="proj-card">
+        <h3>SafeHer</h3>
+        <p>Smart Safety and Route Planning System. Recommends safer travel routes by analyzing CCTV coverage, proximity to government buildings, and crowd density.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Wheel-A-Way</h3>
+        <p>Wheelchair Accessible Navigation System. Smart navigation providing wheelchair-friendly routes by identifying accessible pathways for inclusive mobility.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Waste Management System</h3>
+        <p>Automated waste segregation using Arduino, sensors, op-amps, BJTs, and MOSFETs to detect and sort waste through motor-driven mechanisms.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Line Following Robot</h3>
+        <p>Vision-based autonomous navigation using Python and OpenCV with line detection, PID-based steering control, dynamic speed adjustment, and intersection decision-making.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Operation Pixel Merge</h3>
+        <p>Python script using OpenCV and Pillow to detect colored dots in sequential images and reconstruct a hidden message by connecting coordinates.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Automatic Water Dispenser</h3>
+        <p>Touchless automatic water dispensing system using sensors and microcontroller interfacing, designed as part of coursework.</p>
+        <a href="#">View Project</a>
+      </div>
+
+      <div class="proj-card">
+        <h3>Landing Gear Analysis</h3>
+        <p>Vibration and modal analysis of aircraft landing gear using ANSYS to study structural response as part of the Computational Mechanics course.</p>
+        <a href="#">View Project</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div id="skills-wrap">
+    <h2 id="skills-title">Spells in Progress</h2>
+    <div id="skills-tags">
+      <span class="skill-tag">Competitive Programming</span>
+      <span class="skill-tag">Web Development</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Java & OOP</span>
+      <span class="skill-tag">Embedded Systems & Arduino</span>
+      <span class="skill-tag">Circuit Design</span>
+      <span class="skill-tag">Sensor Interfacing & PWM</span>
+      <span class="skill-tag">OpenCV</span>
+      <span class="skill-tag">MATLAB / Simulink</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">Data Structures & Algorithms</span>
+    </div>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div id="soft-skills-wrap">
+    <h2 id="soft-skills-title">Skills Even Learned by Muggles</h2>
+    <div id="soft-skills-tags">
+      <span class="skill-tag">Problem Solving</span>
+      <span class="skill-tag">Team Collaboration</span>
+      <span class="skill-tag">Creative Thinking</span>
+      <span class="skill-tag">Adaptability</span>
+      <span class="skill-tag">Communication Skills</span>
+      <span class="skill-tag">Time Management</span>
+    </div>
+  </div>
+
   <p class="scroll-hint">SCROLL DOWN</p>
-
-
 
 </body>
 </html>

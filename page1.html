@@ -165,6 +165,61 @@
       visibility: visible;
       opacity: 1;
     }
+    #about-wrap {
+      background: black;
+      padding: 60px 40px;
+      border-top: 1px solid rgba(245, 222, 179, 0.1);
+    }
+    #about-title {
+      text-align: center;
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 50px;
+    }
+    #about-content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    #about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .about-detail-item {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(245, 222, 179, 0.1);
+    }
+    .detail-label {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .detail-value {
+      font-size: 15px;
+      color: wheat;
+      letter-spacing: 1px;
+    }
+    #about-bio {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+    #about-bio p {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.9;
+      letter-spacing: 0.5px;
+    }
     #projects-wrap {
       background: black;
       padding: 60px 0;
@@ -359,7 +414,7 @@
     }
     #soft-skills-wrap {
       background: black;
-      padding: 60px 40px 100px 40px;
+      padding: 60px 40px;
       text-align: center;
       border-top: 1px solid rgba(245, 222, 179, 0.1);
     }
@@ -369,6 +424,28 @@
       color: wheat;
       font-weight: normal;
       margin-bottom: 40px;
+    }
+    #languages-wrap {
+      background: black;
+      padding: 60px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(245, 222, 179, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    .lang-title {
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+    .lang-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
     #contact-wrap {
       background: black;
@@ -402,6 +479,94 @@
       border-bottom-color: wheat;
       opacity: 0.7;
     }
+    @media (max-width: 768px) {
+      nav {
+        gap: 15px;
+        padding: 14px 20px;
+        flex-wrap: wrap;
+      }
+      nav a {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+      #intro p {
+        font-size: 50px;
+        letter-spacing: 2px;
+      }
+      #intro img {
+        width: 120px;
+        height: 120px;
+      }
+      #map-section > img {
+        width: 95%;
+        height: 60%;
+      }
+      .reveal-btn {
+        font-size: 13px;
+        padding: 10px 16px;
+        margin-top: 60px;
+        text-align: center;
+      }
+      .about-text {
+        font-size: 14px;
+        max-width: 90%;
+      }
+      #projects-title, #hackathons-title, #certs-title,
+      #skills-title, #soft-skills-title, #contact-title,
+      #about-title, .lang-title {
+        font-size: 24px;
+        letter-spacing: 4px;
+      }
+      #about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      #about-wrap, #hackathons-wrap, #skills-wrap, #soft-skills-wrap,
+      #languages-wrap, #contact-wrap, #projects-wrap,
+      #certs-wrap {
+        padding: 40px 20px;
+      }
+      #hackathons-list {
+        max-width: 100%;
+      }
+      .hack-name {
+        font-size: 15px;
+      }
+      #contact-links a {
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      .skill-tag {
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+    }
+    @media (max-width: 480px) {
+      #intro p {
+        font-size: 36px;
+      }
+      #intro img {
+        width: 100px;
+        height: 100px;
+      }
+      nav {
+        gap: 10px;
+        padding: 10px 15px;
+      }
+      nav a {
+        font-size: 9px;
+      }
+      .proj-card, .cert-card {
+        min-width: 220px;
+        max-width: 220px;
+      }
+      #projects-title, #hackathons-title, #certs-title,
+      #skills-title, #soft-skills-title, #contact-title,
+      .lang-title {
+        font-size: 20px;
+        letter-spacing: 3px;
+      }
+    }
     .scroll-hint {
       position: fixed;
       bottom: 30px;
@@ -415,7 +580,7 @@
 </head>
 <body>
   <nav>
-    <a href="#map-wrap">About</a>
+    <a href="#about-wrap">About</a>
     <a href="#projects-wrap">Projects</a>
     <a href="#hackathons-wrap">Hackathons</a>
     <a href="#certs-wrap">Certificates</a>
@@ -423,13 +588,53 @@
     <a href="#contact-wrap">Contact</a>
   </nav>
   <div id="intro-wrap">
-    <div id="intro" id="home">
+    <div id="intro">
       <img src="me.jpg" alt="My Photo" />
       <p>Jeevita</p>
     </div>
   </div>
+  <div id="about-wrap">
+    <h2 id="about-title">The Marauder's Notes</h2>
+    <div id="about-content">
+      <div id="about-details">
+        <div class="about-detail-item">
+          <span class="detail-label">College</span>
+          <span class="detail-value">Amrita Vishwa Vidyapeetham, Amritapuri</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">Branch</span>
+          <span class="detail-value">Data Science & Artificial Intelligence</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">Semester</span>
+          <span class="detail-value">4th</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">CGPA</span>
+          <span class="detail-value">8.82</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">10th</span>
+          <span class="detail-value">89.4%</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">12th</span>
+          <span class="detail-value">93.7%</span>
+        </div>
+        <div class="about-detail-item">
+          <span class="detail-label">Clubs</span>
+          <span class="detail-value">ACM Cyber SIG · amFOSS (4 months trainee)</span>
+        </div>
+      </div>
+      <div id="about-bio">
+        <p>I'm a 4th semester student at Amrita Vishwa Vidyapeetham, Amritapuri, pursuing Data Science and Artificial Intelligence with a CGPA of 8.82. Beyond academics, I'm an active member of ACM Cyber SIG and spent 4 months as a trainee at amFOSS, where I got my hands dirty with real projects and open source.</p>
+        <p>Outside of tech, I'm someone who loves exploring new cuisines, new places, new stories. You'll find me buried in a novel, or halfway through an anime. I also have a deep appreciation for music, and I'm fully convinced I'm a great singer (even though I'm not) a belief that exists exclusively when no one else is around to confirm or deny it.</p>
+        <p>I like to think I'm creative (the travelling and reading help with that), though I'll be the first to admit I'm also a champion procrastinator.</p>
+      </div>
+    </div>
+  </div>
   <div id="map-wrap">
-    <div id="map-section" id="about">
+    <div id="map-section">
       <img src="map.png" alt="Map" />
       <div class="overlay"></div>
       <input type="checkbox" id="reveal-toggle" />
@@ -523,7 +728,7 @@ I enjoy solving problems, from circuits to software.</p>
         <p>HACKtoLEARN 🏆</p>
         <span>Certificate of Merit · Best Girls Team</span>
       </div>
-        <div class="cert-card">
+      <div class="cert-card">
         <img src="cert1.jpg" alt="HackTheRank Certificate" />
         <p>HackTheRank</p>
         <span>Certificate of Participation</span>
@@ -595,6 +800,29 @@ I enjoy solving problems, from circuits to software.</p>
       <span class="skill-tag">Adaptability</span>
       <span class="skill-tag">Communication Skills</span>
       <span class="skill-tag">Time Management</span>
+    </div>
+  </div>
+  <div id="languages-wrap">
+    <div>
+      <h2 class="lang-title">My Coding Grimoire</h2>
+      <div class="lang-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">R</span>
+      </div>
+    </div>
+    <div>
+      <h2 class="lang-title">Parseltongue & Beyond</h2>
+      <div class="lang-tags">
+        <span class="skill-tag">English</span>
+        <span class="skill-tag">Hindi</span>
+        <span class="skill-tag">Telugu</span>
+      </div>
     </div>
   </div>
   <div id="contact-wrap">

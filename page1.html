@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background: radial-gradient(circle at top, #0a0a0a, #000);
       color: white;
       font-family: 'Georgia', serif;
       overflow-x: hidden;
     }
-
     nav {
       position: fixed;
       top: 0;
@@ -33,7 +30,6 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(245, 222, 179, 0.1);
     }
-
     nav a {
       color: rgba(245, 222, 179, 0.6);
       text-decoration: none;
@@ -42,15 +38,12 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: wheat;
     }
-
     #intro-wrap {
       height: 300vh;
     }
-
     #intro {
       position: sticky;
       top: 0;
@@ -60,7 +53,6 @@
       justify-content: center;
       flex-direction: column;
     }
-
     #intro img {
       width: 160px;
       height: 160px;
@@ -72,7 +64,6 @@
       animation-timeline: scroll();
       animation-range: 0px 1800px;
     }
-
     #intro p {
       font-size: 90px;
       letter-spacing: 4px;
@@ -85,18 +76,15 @@
       animation-timeline: scroll();
       animation-range: 0px 1800px;
     }
-
     @keyframes fadeScale {
       0%   { opacity: 0; transform: scale(0.9); }
       40%  { opacity: 1; transform: scale(1); }
       70%  { opacity: 0; }
       100% { opacity: 0; }
     }
-
     #map-wrap {
       height: 300vh;
     }
-
     #map-section {
       position: sticky;
       top: 0;
@@ -106,12 +94,10 @@
       animation-timeline: scroll();
       animation-range: 2000px 2500px;
     }
-
     @keyframes fadeinsection {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-
     #map-section > img {
       position: absolute;
       top: 50%;
@@ -121,7 +107,6 @@
       height: 70%;
       object-fit: cover;
     }
-
     .overlay {
       position: absolute;
       top: 0;
@@ -130,7 +115,6 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.4);
     }
-
     .map-text {
       position: absolute;
       top: 50%;
@@ -142,11 +126,9 @@
       align-items: center;
       justify-content: center;
     }
-
     #reveal-toggle {
       display: none;
     }
-
     .reveal-btn {
       padding: 12px 24px;
       border: 2px solid wheat;
@@ -159,11 +141,9 @@
       transition: background 0.3s;
       margin-top: 115px;
     }
-
     .reveal-btn:hover {
       background: rgba(245, 222, 179, 0.2);
     }
-
     .about-text {
       visibility: hidden;
       opacity: 0;
@@ -178,21 +158,17 @@
       font-style: italic;
       margin-top: 0;
     }
-
     #reveal-toggle:checked ~ .map-text .reveal-btn {
       display: none;
     }
-
     #reveal-toggle:checked ~ .map-text .about-text {
       visibility: visible;
       opacity: 1;
     }
-
     #projects-wrap {
       background: black;
       padding: 60px 0;
     }
-
     #projects-title {
       text-align: center;
       font-size: 40px;
@@ -201,7 +177,6 @@
       margin-bottom: 40px;
       font-weight: normal;
     }
-
     #projects-scroll {
       display: flex;
       overflow-x: scroll;
@@ -210,11 +185,9 @@
       padding: 20px 80px;
       scrollbar-width: none;
     }
-
     #projects-scroll::-webkit-scrollbar {
       display: none;
     }
-
     .proj-card {
       min-width: 300px;
       max-width: 300px;
@@ -225,12 +198,10 @@
       flex-shrink: 0;
       transition: all 0.3s;
     }
-
     .proj-card:hover {
       transform: translateY(-10px) scale(1.02);
       border-color: wheat;
     }
-
     .proj-card h3 {
       font-size: 20px;
       color: wheat;
@@ -238,7 +209,6 @@
       margin-bottom: 15px;
       font-weight: normal;
     }
-
     .proj-card p {
       font-size: 14px;
       color: #aaa;
@@ -246,7 +216,6 @@
       margin-bottom: 20px;
       letter-spacing: 0.5px;
     }
-
     .proj-card a {
       color: wheat;
       font-size: 13px;
@@ -256,17 +225,112 @@
       padding-bottom: 2px;
       transition: opacity 0.3s;
     }
-
     .proj-card a:hover {
       opacity: 0.6;
     }
-
+    #certs-wrap {
+      background: black;
+      padding: 60px 0;
+      border-top: 1px solid rgba(245, 222, 179, 0.1);
+    }
+    #certs-title {
+      text-align: center;
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
+    #certs-scroll {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      gap: 30px;
+      padding: 20px 80px 40px 80px;
+      scrollbar-width: none;
+    }
+    #certs-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .cert-card {
+      min-width: 300px;
+      max-width: 300px;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: transform 0.3s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-15px);
+    }
+    .cert-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid rgba(245, 222, 179, 0.2);
+    }
+    .cert-card p {
+      font-size: 15px;
+      color: wheat;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .cert-card span {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    #hackathons-wrap {
+      background: black;
+      padding: 60px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(245, 222, 179, 0.1);
+    }
+    #hackathons-title {
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: wheat;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
+    #hackathons-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .hack-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(245, 222, 179, 0.1);
+      transition: padding-left 0.3s;
+    }
+    .hack-item:hover {
+      padding-left: 10px;
+    }
+    .hack-name {
+      font-size: 18px;
+      color: wheat;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .hack-meta {
+      font-size: 13px;
+      color: #777;
+      letter-spacing: 1.5px;
+    }
     #skills-wrap {
       background: black;
       padding: 60px 40px;
       text-align: center;
     }
-
     #skills-title {
       font-size: 40px;
       letter-spacing: 8px;
@@ -274,14 +338,12 @@
       font-weight: normal;
       margin-bottom: 40px;
     }
-
     #skills-tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
     }
-
     .skill-tag {
       padding: 10px 20px;
       border: 1px solid rgba(245, 222, 179, 0.4);
@@ -291,19 +353,16 @@
       transition: all 0.3s;
       cursor: default;
     }
-
     .skill-tag:hover {
       background: rgba(245, 222, 179, 0.1);
       border-color: wheat;
     }
-
     #soft-skills-wrap {
       background: black;
       padding: 60px 40px 100px 40px;
       text-align: center;
       border-top: 1px solid rgba(245, 222, 179, 0.1);
     }
-
     #soft-skills-title {
       font-size: 40px;
       letter-spacing: 8px;
@@ -311,14 +370,12 @@
       font-weight: normal;
       margin-bottom: 40px;
     }
-
     #contact-wrap {
       background: black;
       padding: 60px 40px 100px 40px;
       text-align: center;
       border-top: 1px solid rgba(245, 222, 179, 0.1);
     }
-
     #contact-title {
       font-size: 40px;
       letter-spacing: 8px;
@@ -326,14 +383,12 @@
       font-weight: normal;
       margin-bottom: 40px;
     }
-
     #contact-links {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
     }
-
     #contact-links a {
       color: wheat;
       text-decoration: none;
@@ -343,12 +398,10 @@
       padding-bottom: 4px;
       transition: all 0.3s;
     }
-
     #contact-links a:hover {
       border-bottom-color: wheat;
       opacity: 0.7;
     }
-
     .scroll-hint {
       position: fixed;
       bottom: 30px;
@@ -361,21 +414,20 @@
   </style>
 </head>
 <body>
-
   <nav>
     <a href="#map-wrap">About</a>
     <a href="#projects-wrap">Projects</a>
+    <a href="#hackathons-wrap">Hackathons</a>
+    <a href="#certs-wrap">Certificates</a>
     <a href="#skills-wrap">Skills</a>
     <a href="#contact-wrap">Contact</a>
   </nav>
-
   <div id="intro-wrap">
     <div id="intro" id="home">
       <img src="me.jpg" alt="My Photo" />
       <p>Jeevita</p>
     </div>
   </div>
-
   <div id="map-wrap">
     <div id="map-section" id="about">
       <img src="map.png" alt="Map" />
@@ -390,56 +442,134 @@ I enjoy solving problems, from circuits to software.</p>
       </div>
     </div>
   </div>
-
   <div id="projects-wrap">
-    <h2 id="projects-title">Projects</h2>
+    <h2 id="projects-title">Things I've Conjured</h2>
     <div id="projects-scroll">
-
       <div class="proj-card">
         <h3>SafeHer</h3>
         <p>Smart Safety and Route Planning System. Recommends safer travel routes by analyzing CCTV coverage, proximity to government buildings, and crowd density.</p>
         <a href="https://github.com/ParvathyPadmakumar/SAFHER" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Wheel-A-Way</h3>
         <p>Wheelchair Accessible Navigation System. Smart navigation providing wheelchair-friendly routes by identifying accessible pathways for inclusive mobility.</p>
         <a href="https://github.com/ParvathyPadmakumar/WheelchairAccessibilityMap" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Operation Pixel Merge</h3>
         <p>Python script using OpenCV and Pillow to detect colored dots in sequential images and reconstruct a hidden message by connecting coordinates.</p>
         <a href="https://github.com/Jeev1ta/amfoss-tasks/tree/main/task-10" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Line Following Robot</h3>
         <p>Vision-based autonomous navigation using Python and OpenCV with line detection, PID-based steering control, dynamic speed adjustment, and intersection decision-making.</p>
         <a href="https://amritauniv-my.sharepoint.com/:w:/g/personal/am_sc_u4aid24006_am_students_amrita_edu/IQDjHRr9GX8XS4h0YEhMjfMOAYcjDljXIoXviHufUBhqVXg?e=wtnQjv" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Waste Management System</h3>
         <p>Automated waste segregation using Arduino, sensors, op-amps, BJTs, and MOSFETs to detect and sort waste through motor-driven mechanisms.</p>
         <a href="https://amritauniv-my.sharepoint.com/:p:/g/personal/am_sc_u4aid24006_am_students_amrita_edu/IQA_PRNJZxWzTbIegvSP6gMvAX7LBCc2ndZ339-0BskRN24?e=kf7frU" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Automatic Water Dispenser</h3>
         <p>Touchless automatic water dispensing system using sensors and microcontroller interfacing, designed as part of coursework.</p>
         <a href="https://amritauniv-my.sharepoint.com/:p:/g/personal/am_sc_u4aid24006_am_students_amrita_edu/IQCK6QszzCFAR7NRFJGBuTc-AQYlE6Ny5fUQYzXBhGVj9ZU?e=Houzi0" target="_blank">View Project</a>
       </div>
-
       <div class="proj-card">
         <h3>Landing Gear Analysis</h3>
         <p>Vibration and modal analysis of aircraft landing gear using ANSYS to study structural response as part of the Computational Mechanics course.</p>
         <a href="https://www.canva.com/design/DAGqIomwON0/5jgdtxYCrub5_eZhPm9WZw/edit?utm_content=DAGqIomwON0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">View Project</a>
       </div>
-
     </div>
   </div>
-
+  <div id="hackathons-wrap">
+    <h2 id="hackathons-title">Battles I've Fought</h2>
+    <div id="hackathons-list">
+      <div class="hack-item">
+        <div class="hack-name">HacktoLearn 🏆</div>
+        <div class="hack-meta">24 Dec 2025 · Best Girls Team Award</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">HackTheRank</div>
+        <div class="hack-meta">20 Mar 2026 · Participation</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">Serve-Smart Hackathon</div>
+        <div class="hack-meta">Jagriti 2026 · 26 Feb 2026 · Participation</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">CMR HACKFEST 3.0</div>
+        <div class="hack-meta">29 Jan 2026 · Participation</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">MOSIP Decode Hackathon · Digital Governance Summit 2026</div>
+        <div class="hack-meta">Shaastra 2026 · 29 Jan 2026 · Participation</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">Code Clash</div>
+        <div class="hack-meta">19 Jan 2026 · Participation</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-name">TATA Crucible Campus Quiz 2025</div>
+        <div class="hack-meta">28 Nov 2025 · Participation</div>
+      </div>
+    </div>
+  </div>
+  <div id="certs-wrap">
+    <h2 id="certs-title">Scrolls of Achievement</h2>
+    <div id="certs-scroll">
+      <div class="cert-card">
+        <img src="cert7.jpg" alt="HACKtoLEARN Certificate" />
+        <p>HACKtoLEARN 🏆</p>
+        <span>Certificate of Merit · Best Girls Team</span>
+      </div>
+        <div class="cert-card">
+        <img src="cert1.jpg" alt="HackTheRank Certificate" />
+        <p>HackTheRank</p>
+        <span>Certificate of Participation</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert2.jpg" alt="Serve-Smart Hackathon Certificate" />
+        <p>Serve-Smart Hackathon</p>
+        <span>Jagriti 2026 · IIT BHU</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert3.jpg" alt="CMR HACKFEST Certificate" />
+        <p>CMR HACKFEST 3.0</p>
+        <span>Certificate of Participation · CMRCET</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert4.jpg" alt="MOSIP Decode Hackathon Certificate" />
+        <p>MOSIP Decode Hackathon</p>
+        <span>Shaastra 2026 · IIT Madras</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert5.jpg" alt="Code Clash Certificate" />
+        <p>Code Clash</p>
+        <span>Certificate of Participation · IIT Jodhpur</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert6.jpg" alt="TATA Crucible Certificate" />
+        <p>TATA Crucible Campus Quiz 2025</p>
+        <span>Certificate of Participation · Tata Group</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert8.jpg" alt="IBM Qiskit Certificate" />
+        <p>IBM Qiskit Fall Fest 2025</p>
+        <span>Certificate of Participation</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert9.jpg" alt="Deep Learning Certificate" />
+        <p>Deep Learning in Python</p>
+        <span>DataCamp · Feb 2026</span>
+      </div>
+      <div class="cert-card">
+        <img src="cert10.jpg" alt="LLM Certificate" />
+        <p>Developing Large Language Models</p>
+        <span>DataCamp · Mar 2026</span>
+      </div>
+    </div>
+  </div>
   <div id="skills-wrap">
     <h2 id="skills-title">Spells in Progress</h2>
     <div id="skills-tags">
@@ -456,7 +586,6 @@ I enjoy solving problems, from circuits to software.</p>
       <span class="skill-tag">Data Structures & Algorithms</span>
     </div>
   </div>
-
   <div id="soft-skills-wrap">
     <h2 id="soft-skills-title">Not Even on O.W.L.s or N.E.W.T.s</h2>
     <div id="soft-skills-tags">
@@ -468,7 +597,6 @@ I enjoy solving problems, from circuits to software.</p>
       <span class="skill-tag">Time Management</span>
     </div>
   </div>
-
   <div id="contact-wrap">
     <h2 id="contact-title">Contact Me the Muggle Way</h2>
     <div id="contact-links">

@@ -13,17 +13,43 @@
     }
 
     body {
-        background: radial-gradient(circle at top, #0a0a0a, #000);
-        color: white;
-        font-family: 'Georgia', serif;
-        overflow-x: hidden;
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: white;
+      font-family: 'Georgia', serif;
+      overflow-x: hidden;
     }
 
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 18px 40px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(245, 222, 179, 0.1);
+    }
+
+    nav a {
+      color: rgba(245, 222, 179, 0.6);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: wheat;
+    }
+
+    /* ── INTRO ── */
     #intro-wrap {
-      height: 299vh;
-    }
-
-    #map-wrap {
       height: 300vh;
     }
 
@@ -38,33 +64,40 @@
     }
 
     #intro img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      animation: fadeinout linear both;
+      border: 2px solid rgba(245,222,179,0.4);
+      box-shadow: 0 0 30px rgba(245,222,179,0.2);
+      animation: fadeScale linear both;
       animation-timeline: scroll();
       animation-range: 0px 1800px;
-      margin: 0;
     }
 
     #intro p {
-      font-size: 80px;
-      line-height: 1.5;
-      text-decoration: underline wheat 3px;
-      letter-spacing: 2px;
-      animation: fadeinout linear both;
+      font-size: 90px;
+      letter-spacing: 4px;
+      margin-top: 20px;
+      background: linear-gradient(90deg, wheat, #fff);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(245,222,179,0.3);
+      animation: fadeScale linear both;
       animation-timeline: scroll();
       animation-range: 0px 1800px;
-      margin: 0;
-      padding: 0;
     }
 
-    @keyframes fadeinout {
-      0%   { opacity: 0; }
-      40%  { opacity: 1; }
+    @keyframes fadeScale {
+      0%   { opacity: 0; transform: scale(0.9); }
+      40%  { opacity: 1; transform: scale(1); }
       70%  { opacity: 0; }
       100% { opacity: 0; }
+    }
+
+    /* ── MAP SECTION ── */
+    #map-wrap {
+      height: 300vh;
     }
 
     #map-section {
@@ -158,6 +191,7 @@
       opacity: 1;
     }
 
+    /* ── PROJECTS ── */
     #projects-wrap {
       background: black;
       padding: 60px 0;
@@ -193,10 +227,11 @@
       padding: 30px;
       scroll-snap-align: center;
       flex-shrink: 0;
-      transition: border-color 0.3s;
+      transition: all 0.3s;
     }
 
     .proj-card:hover {
+      transform: translateY(-10px) scale(1.02);
       border-color: wheat;
     }
 
@@ -230,6 +265,7 @@
       opacity: 0.6;
     }
 
+    /* ── SKILLS ── */
     #skills-wrap {
       background: black;
       padding: 60px 40px;
@@ -266,6 +302,7 @@
       border-color: wheat;
     }
 
+    /* ── SOFT SKILLS ── */
     #soft-skills-wrap {
       background: black;
       padding: 60px 40px 100px 40px;
@@ -281,6 +318,7 @@
       margin-bottom: 40px;
     }
 
+    /* ── CONTACT ── */
     #contact-wrap {
       background: black;
       padding: 60px 40px 100px 40px;
@@ -318,6 +356,7 @@
       opacity: 0.7;
     }
 
+    /* ── SCROLL HINT ── */
     .scroll-hint {
       position: fixed;
       bottom: 30px;
@@ -331,15 +370,25 @@
 </head>
 <body>
 
+  <!-- NAV -->
+  <nav>
+    <a href="#map-wrap">About</a>
+    <a href="#projects-wrap">Projects</a>
+    <a href="#skills-wrap">Skills</a>
+    <a href="#contact-wrap">Contact</a>
+  </nav>
+
+  <!-- INTRO -->
   <div id="intro-wrap">
-    <div id="intro">
+    <div id="intro" id="home">
       <img src="me.jpg" alt="My Photo" />
       <p>Jeevita</p>
     </div>
   </div>
 
+  <!-- MAP / ABOUT -->
   <div id="map-wrap">
-    <div id="map-section">
+    <div id="map-section" id="about">
       <img src="map.png" alt="Map" />
       <div class="overlay"></div>
       <input type="checkbox" id="reveal-toggle" />
@@ -353,6 +402,7 @@ I enjoy solving problems, from circuits to software.</p>
     </div>
   </div>
 
+  <!-- PROJECTS -->
   <div id="projects-wrap">
     <h2 id="projects-title">Projects</h2>
     <div id="projects-scroll">
@@ -402,6 +452,7 @@ I enjoy solving problems, from circuits to software.</p>
     </div>
   </div>
 
+  <!-- SKILLS -->
   <div id="skills-wrap">
     <h2 id="skills-title">Spells in Progress</h2>
     <div id="skills-tags">
@@ -419,6 +470,7 @@ I enjoy solving problems, from circuits to software.</p>
     </div>
   </div>
 
+  <!-- SOFT SKILLS -->
   <div id="soft-skills-wrap">
     <h2 id="soft-skills-title">Not Even on O.W.L.s or N.E.W.T.s</h2>
     <div id="soft-skills-tags">
@@ -431,6 +483,7 @@ I enjoy solving problems, from circuits to software.</p>
     </div>
   </div>
 
+  <!-- CONTACT -->
   <div id="contact-wrap">
     <h2 id="contact-title">Contact Me the Muggle Way</h2>
     <div id="contact-links">
